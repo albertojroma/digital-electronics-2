@@ -1,9 +1,7 @@
 # digital-electronics-2
 
-## by *Alberto Jesus Rodriguez Machado*
-
-## from __Universidad de las Palmas de Gran Canaria__
-
+by *Alberto Jesus Rodriguez Machado*
+from __Universidad de las Palmas de Gran Canaria__
 
 ## **What's this repository about?**
   1. Learning or revisiting basic C programming language
