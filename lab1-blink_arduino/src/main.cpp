@@ -1,18 +1,3 @@
-/*
-
-Lo que viene en el archivo por defecto
-#include <Arduino.h>
-
-void setup() {
-  // put your setup code here, to run once:
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-*/
-
 /***********************************************************************
  * 
  * Blink a LED in Arduino-style and use function from the delay library.
@@ -28,8 +13,7 @@ void loop() {
 /* Defines -----------------------------------------------------------*/
 #define LED_GREEN PB5   // PB5 is AVR pin where green on-board LED 
                         // is connected
-#define LED_RED PB0     // PB5 is 8 pin                   
-#define SHORT_DELAY 500 // Delay in milliseconds
+#define UNIT_DELAY  500 // time in milisenconds
 #ifndef F_CPU
 # define F_CPU 16000000 // CPU frequency in Hz required for delay funcs
 #endif
@@ -37,6 +21,7 @@ void loop() {
 /* Includes ----------------------------------------------------------*/
 #include <avr/io.h>     // AVR device-specific IO definitions
 #include <util/delay.h> // Functions for busy-wait delay loops
+#include <string.h>
 
 
 // -----
@@ -44,8 +29,8 @@ void loop() {
 // names. We are using Arduino-style just to simplify the first lab.
 #include "Arduino.h"
 #define PB5 13          // In Arduino world, PB5 is called "13"
-#define PB0 8          // In Arduino world, PB5 is called "13"
 // -----
+String palabra = "PARIS";
 
 
 /* Function definitions ----------------------------------------------*/
@@ -54,31 +39,93 @@ void loop() {
  * Purpose:  Toggle one LED and use delay library.
  * Returns:  none
  **********************************************************************/
-int main(void)
-{
-    uint8_t led_value = LOW;  // Local variable to keep LED status
 
+void dit(){
+  digitalWrite(LED_GREEN, HIGH);
+  _delay_ms(UNIT_DELAY);
+  digitalWrite(LED_GREEN, LOW);
+}
+
+void dah(){
+  digitalWrite(LED_GREEN, HIGH);
+  _delay_ms(UNIT_DELAY*3);
+  digitalWrite(LED_GREEN, LOW);
+}
+
+void P(){
+  dit();
+  _delay_ms(UNIT_DELAY);
+  dah();
+  _delay_ms(UNIT_DELAY);
+  dah();
+  _delay_ms(UNIT_DELAY);
+  dit();
+}
+
+void A(){
+  dit();
+  _delay_ms(UNIT_DELAY);
+  dah();
+}
+
+void R(){
+  dit();
+  _delay_ms(UNIT_DELAY);
+  dah();
+  _delay_ms(UNIT_DELAY);
+  dit();
+}
+
+void I(){
+  dit();
+  _delay_ms(UNIT_DELAY);
+  dit();
+}
+
+void S(){
+  dit();
+  _delay_ms(UNIT_DELAY);
+  dit();
+  _delay_ms(UNIT_DELAY);
+  dit();
+}
+
+void letter2morse(char letter){
+  switch (letter){
+    case 'P':
+      P();
+      break;
+    case 'A':
+      A();
+      break;
+    case 'R':
+      R();
+      break;
+    case 'I':
+      I();
+      break;
+    case 'S':
+      S();
+      break;
+    default:
+    break;
+  }     
+}
+
+void word2morse(){
+  for (int i=0; i< palabra.length(); i++){
+    char letter = palabra.charAt(i);
+    letter2morse(letter);
+    if (i==palabra.length()-1){
+      _delay_ms(UNIT_DELAY*7);
+    } else _delay_ms(UNIT_DELAY*3);
+  }
+}
+
+int main(void){
     // Set pin where on-board LED is connected as output
     pinMode(LED_GREEN, OUTPUT);
-    pinMode(LED_RED, OUTPUT);
-
     // Infinite loop
-    while (1)
-    {
-        // Turn ON/OFF on-board LED
-        digitalWrite(LED_GREEN, led_value);
-        digitalWrite(LED_RED, led_value);
-
-        // Pause several milliseconds
-        _delay_ms(SHORT_DELAY);
-
-        // Change LED value
-        if (led_value == LOW)
-            led_value = HIGH;
-        else
-            led_value = LOW;
-    }
-
-    // Will never reach this
+    while (1) word2morse();
     return 0;
 }
