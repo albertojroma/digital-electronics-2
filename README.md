@@ -18,7 +18,14 @@ int main(void)
         // Generate a lettre `A` Morse code
 
         // WRITE YOUR CODE HERE
-
+        digitalWrite(LED_GREEN, HIGH);
+        _delay_ms(UNIT_DELAY);
+        digitalWrite(LED_GREEN, LOW);
+        _delay_ms(UNIT_DELAY);
+        digitalWrite(LED_GREEN, HIGH);
+        _delay_ms(UNIT_DELAY*3);
+        digitalWrite(LED_GREEN, LOW);
+        _delay_ms(UNIT_DELAY*3);
     }
 
     // Will never reach this
