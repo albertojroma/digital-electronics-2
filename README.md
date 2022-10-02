@@ -1,16 +1,40 @@
 # digital-electronics-2
 
-## by *Alberto Jesus Rodriguez Machado*
+# Lab 1: ALBERTO JESUS RODRIGUEZ MACHADO
 
-## from __Universidad de las Palmas de Gran Canaria__
+### Morse code
 
+1. Listing of C code which repeats one "dot" and one "comma" (BTW, in Morse code it is letter `A`) on a LED. Always use syntax highlighting, meaningful comments, and follow C guidelines:
 
-## **What's this repository about?**
-  1. Learning or revisiting basic C programming language
-  2. Learning how to use an online repository such as GitHub
-  3. Programming a microcontroller (we are using Arduino Uno)
-  
-### Helpful links:
-  1. [Basic C code](https://www.youtube.com/watch?v=KJgsSFOSQv0)
-  2. [GitHub and Git](https://www.youtube.com/watch?v=RGOj5yH7evk)
+```c
+int main(void)
+{
+    // Set pin where on-board LED is connected as output
+    pinMode(LED_GREEN, OUTPUT);
+
+    // Infinite loop
+    while (1)
+    {
+        // Generate a lettre `A` Morse code
+
+        // WRITE YOUR CODE HERE
+        digitalWrite(LED_GREEN, HIGH); //turn on the LED
+        _delay_ms(UNIT_DELAY);         //defines the time where the LED is on or off
+                                       //it depends from the previous statement
+        digitalWrite(LED_GREEN, LOW);  //turn down the LED
+        _delay_ms(UNIT_DELAY);
+        digitalWrite(LED_GREEN, HIGH);
+        _delay_ms(UNIT_DELAY*3);       //here it's times 3 because we are representing a "dah"
+        digitalWrite(LED_GREEN, LOW);
+        _delay_ms(UNIT_DELAY*3);       //unit times 3 is the time to "Inter-character space"
+    }
+
+    // Will never reach this
+    return 0;
+}
+```
+
+2. Scheme of Morse code application, i.e. connection of AVR device, LED, resistor, and supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values!
+
+   ![your figure]()
   
