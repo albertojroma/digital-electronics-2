@@ -18,14 +18,15 @@ int main(void)
         // Generate a lettre `A` Morse code
 
         // WRITE YOUR CODE HERE
-        digitalWrite(LED_GREEN, HIGH);
+        digitalWrite(LED_GREEN, HIGH); //turn on the LED
+        _delay_ms(UNIT_DELAY);         //defines the time where the LED is on or off
+                                       //it depends from the previous statement
+        digitalWrite(LED_GREEN, LOW);  //turn down the LED
         _delay_ms(UNIT_DELAY);
-        digitalWrite(LED_GREEN, LOW);
-        _delay_ms(UNIT_DELAY);
         digitalWrite(LED_GREEN, HIGH);
-        _delay_ms(UNIT_DELAY*3);
+        _delay_ms(UNIT_DELAY*3);       //here it's times 3 because we are representing a "dah"
         digitalWrite(LED_GREEN, LOW);
-        _delay_ms(UNIT_DELAY*3);
+        _delay_ms(UNIT_DELAY*3);       //unit times 3 is the time to "Inter-character space"
     }
 
     // Will never reach this
