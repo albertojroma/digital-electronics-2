@@ -90,6 +90,25 @@ void S(){
   dit();
 }
 
+char lower2capital (char letter){
+  if (letter=='P' || letter=='p'){
+    letter = 'P';
+  }
+  if (letter=='A' || letter=='a'){
+    letter = 'A';
+  }
+  if (letter=='R' || letter=='r'){
+    letter = 'R';
+  }
+  if (letter=='I' || letter=='i'){
+    letter = 'I';
+  }
+  if (letter=='S' || letter=='s'){
+    letter = 'S';
+  }
+  return letter;
+}
+
 void letter2morse(char letter){
   switch (letter){
     case 'P':
@@ -115,7 +134,7 @@ void letter2morse(char letter){
 void word2morse(){
   for (int i=0; i< palabra.length(); i++){
     char letter = palabra.charAt(i);
-    letter2morse(letter);
+    letter2morse(lower2capital(letter));
     if (i==palabra.length()-1){
       _delay_ms(UNIT_DELAY*7);
     } else _delay_ms(UNIT_DELAY*3);
