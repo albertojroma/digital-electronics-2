@@ -12,6 +12,8 @@ int main(void)
     // Set pin where on-board LED is connected as output
     pinMode(LED_GREEN, OUTPUT);
 
+    int time = 500;
+
     // Infinite loop
     while (1)
     {
@@ -19,14 +21,14 @@ int main(void)
 
         // WRITE YOUR CODE HERE
         digitalWrite(LED_GREEN, HIGH); //turn on the LED
-        _delay_ms(UNIT_DELAY);         //defines the time where the LED is on or off
+        _delay_ms(time);               //defines the time where the LED is on or off
                                        //it depends from the previous statement
         digitalWrite(LED_GREEN, LOW);  //turn down the LED
-        _delay_ms(UNIT_DELAY);
+        _delay_ms(time);
         digitalWrite(LED_GREEN, HIGH);
-        _delay_ms(UNIT_DELAY*3);       //here it's times 3 because we are representing a "dah"
+        _delay_ms(time*3);             //here it's times 3 because we are representing a "dah"
         digitalWrite(LED_GREEN, LOW);
-        _delay_ms(UNIT_DELAY*3);       //unit times 3 is the time to "Inter-character space"
+        _delay_ms(time*3);             //unit times 3 is the time to "Inter-character space"
     }
 
     // Will never reach this
