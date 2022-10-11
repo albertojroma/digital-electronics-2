@@ -8,7 +8,6 @@
    | :-: | :-: | :-: | :-: | :-- |
    | 0 | 0 | input | no | Tri-state, high-impedance |
    | 0 | 1 | input | yes | Pxn will source current if ext. pulled low |
-   | 0 | 1 | input | no | Tri-state, high-impedance |
    | 1 | 0 | output | no | output low (sink) |
    | 1 | 1 | output | no | output high(source) |
 
