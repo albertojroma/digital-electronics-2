@@ -1,3 +1,4 @@
+1. What data and control signals are used? What is the meaning of these signals? 
 | **LCD signal(s)** | **AVR pin(s)** | **Description** |
 |:-:|:-:|:--|
 | RS | PB0 | Register selection signal. Selection between Instruction register (RS=0) and Data register (RS=1) |
