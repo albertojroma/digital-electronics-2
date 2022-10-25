@@ -110,7 +110,7 @@ ISR(ADC_vect)
         lcd_puts(string);
 
         lcd_gotoxy(8, 1); 
-        lcd_puts("     ");
+        lcd_puts("      ");
         lcd_gotoxy(8, 1);
         switch (value) {
         case 0:
