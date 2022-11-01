@@ -1,4 +1,4 @@
-# Lab 5: INSERT_YOUR_FIRSTNAME INSERT_YOUR_LASTNAME
+# Lab 5: ALBERTO JESÚS RODRÍGUEZ MACHADO
 
 ### Analog-to-Digital Conversion
 
@@ -7,11 +7,11 @@
    | **Push button** | **PC0[A0] voltage** | **ADC value (calculated)** | **ADC value (measured)** | **ADC value (measured, hex)** |
    | :-: | :-: | :-: | :-: | :-: |
    | Right  | 0&nbsp;V | 0   | 0 | 0 |
-   | Up     | 0.495&nbsp;V | 101 |  |  |
-   | Down   | 1.203&nbsp;V | 246 |  |  |
-   | Left   |  |  |  |  |
-   | Select |  |  |  |  |
-   | none   |  |  |  |  |
+   | Up     | 0.495&nbsp;V | 101 | 99 | 63 |
+   | Down   | 1.203&nbsp;V | 246 | 257 | 101 |
+   | Left   | 1.969 V | 402 | 409 | 199 |
+   | Select | 3.182 V | 651 | 640 | 280 |
+   | none   | 5 V | 1023 | 1023 | 3ff |
 
 ### Temperature meter
 
@@ -19,8 +19,9 @@ Consider an application for temperature measurement. Use analog temperature sens
 
 2. Draw a schematic of temperature meter. The image can be drawn on a computer or by hand. Always name all components and their values.
 
-   ![your figure]()
+   ![Esquema medidor de temperatura](https://user-images.githubusercontent.com/114478211/199028879-8df5f24c-0f60-4c19-b153-48a6b7135a86.png)
 
 3. Draw two flowcharts for interrupt handler `TIMER1_OVF_vect` (which overflows every 1&nbsp;sec) and `ADC_vect`. The image can be drawn on a computer or by hand. Use clear descriptions of the individual steps of the algorithms.
 
-   ![your figure]()
+   ![flowchart](https://user-images.githubusercontent.com/114478211/199093074-4e3694f5-2472-45e0-b1df-0542ba439255.jpg)
+
