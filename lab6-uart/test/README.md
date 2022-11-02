@@ -30,7 +30,7 @@
 
    **Complete code communication:** `-11-+0+1_0010_0010-11-+0+1_1010_0110-11-+0+0_0100_1100-11`
 
-   ![timing diagrama lab6](https://user-images.githubusercontent.com/114478211/199479217-0ed01514-435d-4dba-8ec2-a322623a3a08.jpg)
+   ![timing diagrama lab6](https://user-images.githubusercontent.com/114478211/199479571-d7cc0c3f-4aeb-484b-9142-5a950744805c.jpg)
 
 3. Draw a flowchart for function `uint8_t get_parity(uint8_t data, uint8_t type)` which calculates a parity bit of input 8-bit `data` according to parameter `type`. The image can be drawn on a computer or by hand. Use clear descriptions of individual algorithm steps.
 
