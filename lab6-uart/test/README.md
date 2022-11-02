@@ -28,9 +28,9 @@
    | `e` | 101 | 0x65 | `0b0110_0101` | `1` | `0b0110_0101_1` | `1010_011_1` |
    | `2` | 50 | 0x32 | `0b0011_0010` | `0` | `0b0011_0010_0` | `0100_110_0` |
 
-   **Complete code communication:** `-11-+0+0010_001_1-11-+0+1010_011_1-11-+0+0100_110_0-11`
+   **Complete code communication:** `IDLE-+0+0010_001_1-11-+0+1010_011_1-11-+0+0100_110_0-11-IDLE`
 
-   
+   ![Lab6_timing_diagram](https://user-images.githubusercontent.com/114478211/199487602-d6b29400-1e73-4cab-a3b0-f4c6afec61f7.jpg)
 
 3. Draw a flowchart for function `uint8_t get_parity(uint8_t data, uint8_t type)` which calculates a parity bit of input 8-bit `data` according to parameter `type`. The image can be drawn on a computer or by hand. Use clear descriptions of individual algorithm steps.
 
