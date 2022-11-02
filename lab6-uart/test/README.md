@@ -24,13 +24,13 @@
 
    | **Char** | **Decimal** | **Hexadecimal** | **Binary** | **Parity bit** | **Code with parity bit** | **Reverse code** |
    | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-   | `D` | 68 | 0x44 | `0b0100_0100` | `1` | `0b0100_0100_1` | `1_0010_0010` | 
-   | `e` | 101 | 0x65 | `0b0110_0101` | `1` | `0b0110_0101_1` | `1_1010_0110` |
-   | `2` | 50 | 0x32 | `0b0011_0010` | `0` | `0b0011_0010_0` | `0_0100_1100` |
+   | `D` | 68 | 0x44 | `0b0100_0100` | `1` | `0b0100_0100_1` | `0010_001_1` | 
+   | `e` | 101 | 0x65 | `0b0110_0101` | `1` | `0b0110_0101_1` | `1010_011_1` |
+   | `2` | 50 | 0x32 | `0b0011_0010` | `0` | `0b0011_0010_0` | `0100_110_0` |
 
-   **Complete code communication:** `-11-+0+1_0010_0010-11-+0+1_1010_0110-11-+0+0_0100_1100-11`
+   **Complete code communication:** `-11-+0+0010_001_1-11-+0+1010_011_1-11-+0+0100_110_0-11`
 
-   ![timing diagrama lab6](https://user-images.githubusercontent.com/114478211/199481547-a17bcef7-6d20-416d-ae7e-7bbbf2fb6791.jpg)
+   
 
 3. Draw a flowchart for function `uint8_t get_parity(uint8_t data, uint8_t type)` which calculates a parity bit of input 8-bit `data` according to parameter `type`. The image can be drawn on a computer or by hand. Use clear descriptions of individual algorithm steps.
 
