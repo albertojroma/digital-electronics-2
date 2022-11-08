@@ -11,7 +11,6 @@
  * 
  **********************************************************************/
 
-
 /* Defines -----------------------------------------------------------*/
 #ifndef F_CPU
 # define F_CPU 16000000  // CPU frequency in Hz required for UART_BAUD_SELECT
@@ -26,6 +25,15 @@
 #include <uart.h>           // Peter Fleury's UART library
 #include <stdlib.h>         // C library. Needed for number conversions
 
+/* Global variables --------------------------------------------------*/
+// Declaration of "air" variable with structure "Air_parameters_structure"
+struct Air_parameters_structure {
+    uint8_t humid_int;
+    uint8_t humid_dec;
+    uint8_t temp_int;
+    uint8_t temp_dec;
+    uint8_t checksum;
+} air;
 
 /* Function definitions ----------------------------------------------*/
 /**********************************************************************
@@ -45,7 +53,7 @@ int main(void)
 
     // Configure 16-bit Timer/Counter1 to test one I2C address
     // Set prescaler to 33 ms and enable interrupt
-    TIM1_overflow_33ms();
+    TIM1_overflow_1s();
     TIM1_overflow_interrupt_enable();
 
     // Enables interrupts by setting the global interrupt mask
@@ -77,11 +85,73 @@ ISR(TIMER1_OVF_vect)
     uint8_t ack;              // ACK response from Slave
     char string[3];           // String for converting numbers by itoa()
 
-    // Start communication, transmit I2C Slave address, get result,
-    // and Stop communication
-    ack = twi_start(addr, TWI_WRITE);
-    twi_stop();
-
     // Test ACK/NACK value obtained from I2C bus and send info to UART
+    /*if (addr<120)
+    {
+        // Start communication, transmit I2C Slave address, get result,
+        // and Stop communication
+        ack = twi_start(addr, TWI_WRITE);
+        twi_stop();
+        
+        itoa(addr, string, 10);
+        uart_puts(string);
+        uart_puts("\t Hex: ");
+        // hexadecimal
+        itoa(addr, string, 16);
+        uart_puts(string);
+        uart_puts("\t");
+        //addr++;
+        if (ack==0)
+        {
+           uart_puts("OK"); 
+        }
+        
+        uart_puts("\r\n");
+        addr++;
+        //itoa(ack, string, 10);
+        //uart_puts(string);
+        //uart_puts("\r\n");
+
+        //Knonw devices
+    }*/
+
+    addr = 0x5c;
+    ack = twi_start(addr, TWI_WRITE);
+    if (ack==0)
+    {
+        //temperature
+        twi_write(0x02);
+        twi_stop();
+        ack = twi_start(addr, TWI_READ);
+        air.temp_int = twi_read_ack();  // Store one byte to structured variable
+        air.temp_dec = twi_read_ack();
+        twi_stop();
+
+        itoa(air.temp_int, string, 10);
+        uart_puts(string);
+        uart_puts(".");
+        itoa(air.temp_dec, string, 10);
+        uart_puts(string);
+        uart_puts(" °C\t");
+        
+        /*//humidity
+        twi_write(0x00);
+        twi_stop();
+        ack = twi_start(addr, TWI_READ);
+        air.humid_int = twi_read_ack();  // Store one byte to structured variable
+        air.humid_dec = twi_read_nack();
+        twi_stop();
+        NO FUNCIONA
+        itoa(air.humid_int, string, 10);
+        uart_puts(string);
+        uart_puts(".");
+        itoa(air.humid_dec, string, 10);
+        uart_puts(string);
+        uart_puts(" humidity percentage:\r\n");
+        */
+    }
+    
+
+
     
 }
