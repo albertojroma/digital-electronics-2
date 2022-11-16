@@ -21,6 +21,9 @@
    | 4, 3 | 1, 3, 7, 14, 13, 11, 6, 4, 8 | 9 |
    | 4, 2 | 1, 3, 6, 12, 8 | 5 |
    | 4, 1 | 1, 2, 5, 10, 4, 9, 3, 6, 13, 11, 7, 14, 12, 8 | 14 |
+   
+   Reasoning:
+   ![Lab8_221116_140928 (1)](https://user-images.githubusercontent.com/114478211/202205990-091b36fd-7065-4316-b6ea-eeb9e49a2da2.jpg)
 
 ### Variable number of short pulses
 
